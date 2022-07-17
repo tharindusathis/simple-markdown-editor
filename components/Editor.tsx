@@ -1,16 +1,9 @@
 import MonacoEditor from "@monaco-editor/react"
-import { useEffect, useState } from "react"
 
 const Editor = ({onChange, defaultValue}:{
     onChange?: (arg: string) => void,
     defaultValue?: string
 }) => {
-
-    const [value, setValue] = useState('')
-
-    useEffect(() => {
-        onChange && onChange(value)
-    }, [value])
 
     return (
         <div className="flex w-full h-full">
@@ -18,7 +11,7 @@ const Editor = ({onChange, defaultValue}:{
                 key={1}
                 defaultLanguage="markdown"
                 defaultValue={defaultValue}
-                onChange={(value, _event) => setValue(value || "a")}
+                onChange={(value, _event) => onChange  && onChange(value || "")}
             />
         </div>
     )

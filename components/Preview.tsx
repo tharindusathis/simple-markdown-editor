@@ -6,16 +6,14 @@ import emoji from 'remark-emoji';
 const Preview = ({value}:{
     value: string
 }) => {
-
-
-
     return (
         <div className="w-full h-full">
             <ReactMarkdown
-                className='markdown' 
-                children={value || ''}
+                className='markdown'
                 remarkPlugins={[remarkGfm, emoji]} 
-                rehypePlugins={[rehypeHighlight]}/>
+                rehypePlugins={[rehypeHighlight]}>
+                    {value || ''}
+            </ReactMarkdown>
         </div>
     )
 }
